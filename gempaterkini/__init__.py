@@ -1,3 +1,7 @@
+import requests
+from bs4 import BeautifulSoup
+
+
 def ekstraksi_data():
     """
     tanggal: 12 Juni 2022
@@ -9,6 +13,10 @@ def ekstraksi_data():
     dirasakan: Dirasakan (Skala MMI): II - III Tambolaka, II Waikabubak
     :return:
     """
+    content = requests.get('https://bmkg.go.id')
+    soup = BeautifulSoup(content)
+    print(soup.prettify())
+
     hasil = dict()
     hasil['tanggal'] = '12 Juni 2022'
     hasil['waktu'] = '10:25:26 WIB'
